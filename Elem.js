@@ -1,22 +1,33 @@
-export default class Elem{
-    #adat="";
-    #index=0;
+export default class Elem {
+    #adat = "";
+    #index = 0;
     szuloElem;
-    constructor(szuloElem, elem, index){
-        this.szuloElem = szuloElem;
-        this.elem = elem;
+    constructor(adat, index, szuloElem) {
+        console.log(szuloElem);
+        this.#adat = adat;
         this.#index = index;
-        megjelenit();
-        esemeny();
+        this.szuloElem = szuloElem;
+        this.megjelenit();
+        this.elem = document.querySelector(".elem:last-child");
+        console.log(this.elem);
+        this.elem.addEventListener("click", () => {
+            if (this.#adat === " ") {
+                this.esemeny();
+            }
+        })
     }
 
-    megjelenit(){
-    
-    
+    megjelenit() {
+        let html = `
+        <div class="elem">
+            ${this.#adat}
+        </div>
+        `;
+        this.szuloElem.insertAdjacentHTML("beforeend", html);
     }
 
-    esemeny(){
-        const kivalasztElem = new CustumEvent("kivalaszt", {
-    });
+    esemeny() {
+        const kivalasztElem = new CustomEvent("kivalaszt", { detail: this.#index })
+        window.dispatchEvent(kivalasztElem);
     }
 }
