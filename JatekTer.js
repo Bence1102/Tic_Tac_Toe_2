@@ -1,4 +1,5 @@
 import Elem from "./Elem.js";
+import Info from "./info.js";
 
 export default class JatekTer {
     #lista = [" O", " ", " ", " ", " ", " ", " ", " ", " X"];
@@ -10,7 +11,9 @@ export default class JatekTer {
         this.megjelenit();
         this.kivlasztEsemenykezelo();
         this.ellenoriz();
-        //this.ujrakezd();
+        this.infoPanel = new Info(document.querySelector(".info"));
+        this.infoPanel.info("X következik");
+        this.infoPanel.info("O következik");
     }
 
 
