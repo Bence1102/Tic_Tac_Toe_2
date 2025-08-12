@@ -1,4 +1,8 @@
 import JatekTer from "./JatekTer.js";
 
 const jatekterElem = document.querySelector(".jatekter");
-new JatekTer(jatekterElem);
+const jatek =new JatekTer(jatekterElem);
+
+document.querySelector(".ujrakezd").addEventListener("click", () => {
+    jatek.ujrakezd();
+})

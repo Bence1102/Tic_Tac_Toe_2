@@ -94,7 +94,10 @@ export default class JatekTer {
     }
 
 
-    ujrakezd(){
-        
+    ujrakezd() { 
+        this.#lista = [" ", " ", " ", " ", " ", " ", " ", " ", " "];
+        this.#korszmalalo = 0;
+        this.#szuloElem.innerHTML = "";
+        this.megjelenit();
     }
 }
